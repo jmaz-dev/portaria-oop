@@ -1,4 +1,4 @@
-import entity.Portaria
+import control.Portaria
 
 fun main() {
     Portaria().controle()

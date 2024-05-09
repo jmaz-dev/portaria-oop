@@ -1,4 +1,4 @@
-package entity
+package control
 
 class Console {
     fun readInt(msg: String): Int {
@@ -13,7 +13,7 @@ class Console {
                 continue
             }
 
-            retorno = info.toIntOrNull()
+            retorno = info.toInt()
         } while (retorno == null || retorno < 0)
 
         return retorno
@@ -25,19 +25,15 @@ class Console {
         do {
             print(str)
             val tipo = readlnOrNull()
-            val convite: Convite = Convite(tipo)
-            val s = listOf("luxo", "comum", "premium")
-            if (!convite.tipo.isNullOrBlank()) {
-                s.forEach {
-                    if (it == convite.tipo)
-                        retorno = convite.tipo
-                }
+
+            if (!tipo.isNullOrBlank()) {
+                retorno = tipo
             } else {
                 println("Valor inválido.")
                 continue
             }
         } while (retorno == null)
 
-        return retorno as String
+        return retorno
     }
 }
